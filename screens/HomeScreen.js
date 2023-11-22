@@ -13,8 +13,8 @@ export function Banner() {
 
 export function HomeScreen() {
   return (
-    <View>
-      <Text>Homescreen</Text>
+    <View style={tw`h-full bg-green-200`}>
+      <Text style={tw`text-3xl m-2 px-3`}>Homescreen</Text>
     </View>
   );
 }
@@ -30,4 +30,6 @@ const styles = StyleSheet.create({
   //bannerText: {
   //fontSize: 24,
   //},
+
+
 });
