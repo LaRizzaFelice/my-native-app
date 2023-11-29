@@ -1,9 +1,11 @@
 import React, { createContext, useContext, useMemo, useState } from "react";
+import { useCallback } from "react";
 
 const PlacesContext = createContext();
 
 const INITIAL_DATA = [
   {
+    isSelected: false,
     id: "123",
     icon: "home",
     name: "Home",
@@ -13,6 +15,7 @@ const INITIAL_DATA = [
     color: "fuchsia",
   },
   {
+    isSelected: false,
     id: "456",
     icon: "briefcase",
     name: "Work",
@@ -25,6 +28,7 @@ const INITIAL_DATA = [
     location: { lat: 51.21640668638187, lng: 4.397249583341867 },
   },
   {
+    isSelected: false,
     id: "457",
     icon: "briefcase",
     name: "Work2",
@@ -37,6 +41,7 @@ const INITIAL_DATA = [
     location: { lat: 51.06846350000001, lng: 4.4988931999999 },
   },
   {
+    isSelected: false,
     id: "777",
     icon: "beer",
     name: "Cafe",
@@ -46,6 +51,7 @@ const INITIAL_DATA = [
     imageIds: [1],
   },
   {
+    isSelected: false,
     id: "778",
     icon: "cafe",
     name: "Koffie",
@@ -55,6 +61,7 @@ const INITIAL_DATA = [
     imageIds: [2, 7],
   },
   {
+    isSelected: false,
     id: "779",
     icon: "nutrition",
     name: "Groentenwinkel",
@@ -63,6 +70,7 @@ const INITIAL_DATA = [
     imageIds: [3],
   },
   {
+    isSelected: false,
     id: "770",
     icon: "videocam",
     name: "Bioscoop",
@@ -72,6 +80,7 @@ const INITIAL_DATA = [
     imageIds: [5],
   },
   {
+    isSelected: false,
     id: "771",
     icon: "train",
     name: "Station",
@@ -81,8 +90,18 @@ const INITIAL_DATA = [
 ];
 
 export function PlacesProvider(props) {
-  const [places] = useState(INITIAL_DATA);
-  const api = useMemo(() => ({ places }), [places]);
+
+    const [places, setPlaces] = useState(INITIAL_DATA);
+
+  const toggleIsSelected = useCallback(
+    placeToToggle => {
+        const toggledPlace = { ...placeToToggle, isSelected: !placeToToggle.isSelected }
+        console.log(toggledPlace);
+        setPlaces(places.map(place => placeToToggle.id === place.id ? toggledPlace : place))
+    }
+  )  
+  
+  const api = useMemo(() => ({ places, toggleIsSelected }), [places, toggleIsSelected]);
   return (
     <PlacesContext.Provider value={api}>
       {props.children}
