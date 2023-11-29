@@ -2,7 +2,7 @@ import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { StatusBar, Text } from "react-native";
 import tw from "twrnc";
-import { NAV_PLACES } from "../navigation_constants";
+import { NAV_IMAGES, NAV_PLACES } from "../navigation_constants";
 
 
 export function Banner() {
@@ -13,15 +13,15 @@ export function Banner() {
   );
 }
 
-export function HomeScreenButton() {
+export function HomeScreenButton({navLink, text}) {
   const navigation = useNavigation();
   return (
     <View style={styles.center}>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate(NAV_PLACES)}
+        onPress={() => navigation.navigate(navLink)}
       >
-        <Text style={styles.buttonText}>Homescreen</Text>
+        <Text style={styles.buttonText}>{text || navLink}</Text>
       </TouchableOpacity>
     </View>
   );
@@ -32,9 +32,8 @@ export function HomeScreen() {
   return (
     <View style={styles.background}>
       <Banner/>
-      <HomeScreenButton />
-      <HomeScreenButton />
-      <HomeScreenButton />
+      <HomeScreenButton navLink={NAV_PLACES} />
+      <HomeScreenButton navLink={NAV_IMAGES} />
     </View>
   );
 }
