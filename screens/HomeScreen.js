@@ -25,6 +25,7 @@ export function HomeScreenButton() {
 export function HomeScreen() {
   return (
     <View style={styles.background}>
+      <Banner/>
       <HomeScreenButton />
       <HomeScreenButton />
       <HomeScreenButton />
