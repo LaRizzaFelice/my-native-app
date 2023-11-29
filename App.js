@@ -7,6 +7,7 @@ import { PlacesScreen } from "./screens/PlacesScreen";
 import { NAV_HOME, NAV_IMAGES, NAV_PLACES } from "./navigation_constants";
 import tw from "twrnc";
 import { ImagesScreen } from "./screens/ImageScreen";
+import { PlacesProvider } from "./contexts/PlacesContext";
 
 
 
@@ -32,21 +33,23 @@ function ProvidedApp() {
 
 
 export default function App() {
-  return (
-    Platform.select({
-      web: (
-    <NavigationContainer>
-        <ProvidedApp />
-    </NavigationContainer>
-      ),
+  return Platform.select({
+    web: (
+      <NavigationContainer>
+        <PlacesProvider>
+          <ProvidedApp />
+        </PlacesProvider>
+      </NavigationContainer>
+    ),
     default: (
       <NavigationContainer>
-      <StatusBar />
-        <ProvidedApp />
-    </NavigationContainer>
-    )
-  })
-  )
+        <StatusBar />
+        <PlacesProvider>
+          <ProvidedApp />
+        </PlacesProvider>
+      </NavigationContainer>
+    ),
+  });
 }
 
 
