@@ -1,38 +1,60 @@
-import { StyleSheet, TouchableOpacity, View } from "react-native";
-import { Text } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Icon } from "react-native-elements";
 import tw from "twrnc";
+
 import { usePlacesContext } from "../contexts/PlacesContext";
 
-function Place ({place}) {
-    const {toggleIsSelected} = usePlacesContext();
+function PlaceIcon({ place }) {
+  return (
+    <Icon
+      name={place.icon}
+      color={place.color}
+      type="ionicon"
+      size={24}
+      style={styles.icon}
+    />
+  );
+}
 
-    return (
-      <View>
-        <TouchableOpacity
-          style={styles.button(place.isSelected)}
-          onPress={() => toggleIsSelected(place)}
-        >
-          <Text style={tw`text-lg`}>{place.name}</Text>
-          <Text style={tw`text-gray-600`}>{place.description}</Text>
-          <View style={styles.hairline} />
-        </TouchableOpacity>
-      </View>
-    );
+function Place({ place }) {
+  const { toggleIsSelected } = usePlacesContext();
+
+  return (
+    <View style={styles.placeContainer}>
+      <TouchableOpacity
+        style={[styles.center, styles.touchable(place.isSelected)]}
+        onPress={() => toggleIsSelected(place)}
+      >
+        <PlaceIcon place={place} />
+        <View style={tw`flex-1`}>
+          <Text style={styles.name}>{place.name}</Text>
+          <Text style={styles.description}>{place.description}</Text>
+        </View>
+      </TouchableOpacity>
+      <View style={styles.hairline} />
+    </View>
+  );
 }
 
 export function PlacesScreen() {
-    const {places} = usePlacesContext();
-
+  const { places } = usePlacesContext();
   return (
     <View style={styles.container}>
-     {places.map(place => <Place key={place.id} place={place}/>)}
+      {places.map((place) => (
+        <Place key={place.id} place={place} />
+      ))}
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
+  center: tw`items-center`,
   container: tw`h-full bg-gray-100`,
+  placeContainer: tw`w-full`,
   hairline: { height: StyleSheet.hairlineWidth, backgroundColor: "gray" },
-  button: (isSelected) => tw`p-4 ${isSelected ? "bg-purple-100" : ""}`,
+  touchable: (isSelected) =>
+    tw`flex-row p-3 ${isSelected ? "bg-purple-100" : ""}`,
+  name: tw`font-semibold text-lg`,
+  description: tw`text-gray-500`,
+  icon: tw`mr-4 p-3 bg-purple-200 rounded-full`,
 });
-
