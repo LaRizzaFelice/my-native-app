@@ -2,10 +2,11 @@ import { StyleSheet, View } from "react-native";
 import { Text } from "react-native";
 import tw from "twrnc";
 
-export function PlaceDetailScreen() {
+export function PlaceDetailScreen({route}) {
+  const {place} = route.params;
   return (
     <View style={styles.container}>
-      <Text>Place Details</Text>
+      <Text>Details screen for {place.name}</Text>
     </View>
   );
 }

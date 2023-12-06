@@ -23,7 +23,6 @@ function Place({ place }) {
    const navigation = useNavigation();
 
   return (
-  
     <View style={styles.placeContainer}>
       <TouchableOpacity
         style={[styles.center, styles.touchable(place.isSelected)]}
@@ -36,7 +35,7 @@ function Place({ place }) {
         </View>
         <TouchableOpacity
           style={[styles.center, styles.touchable(place.isSelected)]}
-          onPress={() => navigation.navigate(NAV_PLACE_DETAILS)}
+          onPress={() => navigation.navigate(NAV_PLACE_DETAILS, { place })}
         >
           <Icon style={styles.icon} name={`chevron-forward`} type="ionicon" />
         </TouchableOpacity>
