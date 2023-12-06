@@ -3,6 +3,8 @@ import { Icon } from "react-native-elements";
 import tw from "twrnc";
 
 import { usePlacesContext } from "../contexts/PlacesContext";
+import { NAV_PLACE_DETAILS } from "../navigation_constants";
+import { useNavigation } from "@react-navigation/native";
 
 function PlaceIcon({ place }) {
   return (
@@ -18,8 +20,10 @@ function PlaceIcon({ place }) {
 
 function Place({ place }) {
   const { toggleIsSelected } = usePlacesContext();
+   const navigation = useNavigation();
 
   return (
+  
     <View style={styles.placeContainer}>
       <TouchableOpacity
         style={[styles.center, styles.touchable(place.isSelected)]}
@@ -30,7 +34,12 @@ function Place({ place }) {
           <Text style={styles.name}>{place.name}</Text>
           <Text style={styles.description}>{place.description}</Text>
         </View>
-        <Icon style={styles.icon} name ={`chevron-forward`} type='ionicon'/>
+        <TouchableOpacity
+          style={[styles.center, styles.touchable(place.isSelected)]}
+          onPress={() => navigation.navigate(NAV_PLACE_DETAILS)}
+        >
+          <Icon style={styles.icon} name={`chevron-forward`} type="ionicon" />
+        </TouchableOpacity>
       </TouchableOpacity>
       <View style={styles.hairline} />
     </View>
