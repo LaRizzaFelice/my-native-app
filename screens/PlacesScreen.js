@@ -30,6 +30,7 @@ function Place({ place }) {
           <Text style={styles.name}>{place.name}</Text>
           <Text style={styles.description}>{place.description}</Text>
         </View>
+        <Icon style={styles.icon} name ={`chevron-forward`} type='ionicon'/>
       </TouchableOpacity>
       <View style={styles.hairline} />
     </View>
