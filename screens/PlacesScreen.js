@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View, FlatList} from "react-native";
 import { Icon } from "react-native-elements";
 import tw from "twrnc";
 
@@ -40,9 +40,11 @@ export function PlacesScreen() {
   const { places } = usePlacesContext();
   return (
     <View style={styles.container}>
-      {places.map((place) => (
-        <Place key={place.id} place={place} />
-      ))}
+      <FlatList
+      data={places}
+      Keyextractor={place=>place.id}
+      renderItem={({item}) => <Place place ={item} />}>
+      </FlatList>
     </View>
   );
 }
