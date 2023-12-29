@@ -7,12 +7,12 @@ const INITIAL_DATA = [
   {
     isSelected: false,
     id: "123",
-    icon: "home",
-    name: "Home",
-    description: "Grote Markt, Mechelen, Belgium",
+    icon: "pizza-outline",
+    name: "Pizza Margherita",
+    description: "Classic tomato, mozzarella, and basil",
     info: "hier woon ik niet echt",
-    location: { lat: 51.0282259, lng: 4.4799391 },
-    color: "fuchsia",
+    price: 10.99,
+    color: "fblack",
   },
   {
     isSelected: false,

@@ -5,10 +5,11 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { PlacesScreen } from "./screens/PlacesScreen";
 import { PlaceDetailScreen } from "./screens/PlaceDetailScreen";
-import { NAV_HOME, NAV_IMAGES, NAV_PLACES, NAV_PLACE_DETAILS } from "./navigation_constants";
+import { NAV_HOME, NAV_IMAGES, NAV_PLACES, NAV_PLACE_DETAILS, ORDERCONFIRM } from "./navigation_constants";
 import tw from "twrnc";
 import { ImagesScreen } from "./screens/ImageScreen";
 import { PlacesProvider } from "./contexts/PlacesContext";
+import OrderConfirmScreen from "./screens/OrderConfirmScreen";
 
 
 
@@ -27,6 +28,7 @@ function ProvidedApp() {
         <Stack.Screen name={NAV_PLACES} component={PlacesScreen} />
         <Stack.Screen name={NAV_IMAGES} component={ImagesScreen} />
         <Stack.Screen name={NAV_PLACE_DETAILS} component={PlaceDetailScreen} />
+        <Stack.Screen name={ORDERCONFIRM} component={OrderConfirmScreen} />
       </Stack.Navigator>
     </>
   );
