@@ -1,4 +1,4 @@
-// ThankYouScreen.js
+
 import React, { useEffect } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
@@ -11,11 +11,11 @@ const OrderConfirmScreen = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      // Navigate back to the homepage after 10 seconds
+      
       navigation.navigate("Home");
     }, 3000);
 
-    return () => clearTimeout(timer); // Clear the timer on component unmount
+    return () => clearTimeout(timer); 
   }, [navigation]);
 
   return (
@@ -32,7 +32,7 @@ const MessageComponent = () => {
     <View style={styles.messagecomponent}>
       <Text style={styles.text1}>Thank you for your order!</Text>
       <Text style={styles.text2}>
-        You will receive a confirmation within a minute.
+        You will receive a confirmation soon!
       </Text>
     </View>
   );

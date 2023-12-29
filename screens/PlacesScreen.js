@@ -59,6 +59,7 @@ export function PlacesScreen() {
 
 const styles = StyleSheet.create({
   center: tw`items-center`,
+  flatlist: tw`flex-1 mb-12`,
   container: tw`h-full bg-gray-100`,
   placeContainer: tw`w-full`,
   choosecomponent: tw`text-center text-2xl font-bold mb-4 flex-none items-center justify-center p-2 `,

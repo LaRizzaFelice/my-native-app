@@ -56,18 +56,11 @@ const HomeScreenComponent = () => {
         originalHeight={300}
       />
       <Text style={styles.hometext1}>Welcome to our Pizza App</Text>
-      <Text style={styles.hometext2}>Make a choise between:</Text>
+      <Text style={styles.hometext2}>Make a choice between:</Text>
     </View>
   );
 };
 
-// const Footer = () => {
-//   return (
-//     <View style={styles.footer}>
-//       <Text style={styles.footerText}>Copyright 2024 - Felice La Rizza</Text>
-//     </View>
-//   );
-// };
 
 export function HomeScreen() {
   return (

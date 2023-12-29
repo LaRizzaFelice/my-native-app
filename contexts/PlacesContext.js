@@ -11,7 +11,7 @@ const INITIAL_DATA = [
     name: "Pizza Margherita",
     description: "Classic tomato, mozzarella, and basil",
     price: 10.99,
-    color: "fblack",
+    color: "black",
   },
   {
     isSelected: false,
@@ -20,7 +20,7 @@ const INITIAL_DATA = [
     name: "Pepperoni Pizza",
     description: "Pepperoni, tomato sauce, and mozzarella cheese",
     price: 12.99,
-    color: "fblack",
+    color: "black",
   },
   {
     isSelected: false,
@@ -29,7 +29,7 @@ const INITIAL_DATA = [
     name: "Vegetarian Delight",
     description: "Assorted vegetables, tomato sauce, and mozzarella cheese",
     price: 11.99,
-    color: "fblack",
+    color: "black",
   },
   {
     isSelected: false,
@@ -38,7 +38,7 @@ const INITIAL_DATA = [
     name: "BBQ Chicken Pizza",
     description: "BBQ chicken, red onions, and mozzarella cheese",
     price: 14.99,
-    color: "fblack",
+    color: "black",
   },
   {
     isSelected: false,
@@ -48,7 +48,7 @@ const INITIAL_DATA = [
     description:
       "Pepperoni, sausage, mushrooms, green peppers, and black olives",
     price: 15.99,
-    color: "fblack",
+    color: "black",
   },
   {
     isSelected: false,
@@ -58,7 +58,7 @@ const INITIAL_DATA = [
     description:
       "We don't make this kind of fake pizza, go and find it somewhere else !!!",
     price: 13.99,
-    color: "fblack",
+    color: "black",
   },
   {
     isSelected: false,
@@ -67,7 +67,7 @@ const INITIAL_DATA = [
     name: "Meatball Madness",
     description: "Meatballs, marinara sauce, and mozzarella cheese",
     price: 14.99,
-    color: "fblack",
+    color: "black",
   },
   {
     isSelected: false,
@@ -76,7 +76,7 @@ const INITIAL_DATA = [
     name: "Mushroom Delight",
     description: "Mushrooms, garlic, olive oil, and mozzarella cheese",
     price: 13.99,
-    color: "fblack",
+    color: "black",
   },
 ];
 

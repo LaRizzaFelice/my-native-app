@@ -10,6 +10,6 @@ export const Footer = () => {
 };
 
 export const styles = StyleSheet.create({
-  footer: tw`absolute bottom-0 left-0 right-0 bg-gray-200 p-4 items-center`,
+  footer: tw`absolute bottom-0 left-0 right-0 bg-gray-200 p-4 items-center mt-4`,
   footerText: tw`text-gray-600`,
 });
