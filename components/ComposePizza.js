@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
+import { Text, TouchableOpacity, View } from "react-native";
 import { StyleSheet } from "react-native";
 import tw from "twrnc";
 
@@ -7,7 +8,7 @@ import tw from "twrnc";
 const DATA = [
   {
     id: "487f68b4-1746-438c-920e-d67b7df46247",
-    name: "your choice",
+    name: "Your choice",
     items: [],
     tint: 2,
   },
@@ -97,15 +98,24 @@ export function ComposePizza() {
   };
 
   return (
-    <div className="layout__wrapper">
-      <div className="card">
+    //  <TouchableOpacity
+    //     style={styles.button}
+    //     onPress={() => navigation.navigate(navLink)}
+    //   >
+    //     <Text style={styles.buttonText}>{text || navLink}</Text>
+    //   </TouchableOpacity>
+
+    <View style={styles.center}>
+      <View>
         <DragDropContext onDragEnd={handleDragAndDrop}>
-          <div className="header">
-            <h1>Composed</h1>
-          </div>
+          
           <Droppable droppableId="ROOT" type="group">
             {(provided) => (
-              <div {...provided.droppableProps} ref={provided.innerRef}>
+              <TouchableOpacity
+                style={styles.button}
+                {...provided.droppableProps}
+                ref={provided.innerRef}
+              >
                 {stores.map((store, index) => (
                   <Draggable
                     draggableId={store.id}
@@ -113,24 +123,24 @@ export function ComposePizza() {
                     key={store.id}
                   >
                     {(provided) => (
-                      <div
+                      <View
                         {...provided.dragHandleProps}
                         {...provided.draggableProps}
                         ref={provided.innerRef}
                         className="store-draggable"
                       >
                         <StoreList {...store} />
-                      </div>
+                      </View>
                     )}
                   </Draggable>
                 ))}
                 {provided.placeholder}
-              </div>
+              </TouchableOpacity>
             )}
           </Droppable>
         </DragDropContext>
-      </div>
-    </div>
+      </View>
+    </View>
   );
 }
 
@@ -170,8 +180,9 @@ const StoreList = ({ name, items, id }) => {
 };
 
 const styles = StyleSheet.create({
-  center: tw`items-center`,
+  center: tw`items-center p-4`,
   flatlist: tw`flex-1 mb-12`,
+  button: tw`text-3xl m-2 px-3 bg-white rounded-full w-80`,
   container: tw`h-full bg-gray-100`,
   placeContainer: tw`w-full`,
   choosecomponent: tw`text-center text-2xl font-bold mb-4 flex-none items-center justify-center p-2 `,
@@ -182,4 +193,15 @@ const styles = StyleSheet.create({
   name: tw`font-semibold text-lg`,
   description: tw`text-gray-500`,
   rightButton: tw`bg-green-200 rounded-full p-3`,
+  background: tw`h-full bg-green-200`,
+  banner: tw`bg-purple-700 p-4`,
+  bannerText: tw`text-center text-white text-2xl`,
+  button: tw`text-3xl m-2 px-3 bg-white rounded-full w-80`,
+  buttonText: tw`text-center text-black text-lg`,
+  center: tw`items-center`,
+  homecomponent: tw`flex-none items-center justify-center p-8`,
+  hometext1: tw`text-2xl font-bold mb-4`,
+  hometext2: tw`text-lg text-gray-500`,
+  footer: tw`absolute bottom-0 left-0 right-0 bg-gray-200 p-4 items-center`,
+  footerText: tw`text-gray-600`,
 });

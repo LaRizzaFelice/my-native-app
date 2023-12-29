@@ -12,6 +12,7 @@ import tw from "twrnc";
 import { NAV_IMAGES, NAV_PLACES } from "../navigation_constants";
 import ItalianFlagBanner from "../components/ItalianFlagBanner";
 import { Footer } from "../components/Footer";
+import { ScreenButton } from "../components/ScreenButton";
 
 function ImageFromUri({
   uri,
@@ -29,20 +30,6 @@ function ImageFromUri({
       style={[styles.image, { width, height }]}
       PlaceholderContent={<ActivityIndicator />}
     />
-  );
-}
-
-export function HomeScreenButton({ navLink, text }) {
-  const navigation = useNavigation();
-  return (
-    <View style={styles.center}>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate(navLink)}
-      >
-        <Text style={styles.buttonText}>{text || navLink}</Text>
-      </TouchableOpacity>
-    </View>
   );
 }
 
@@ -67,8 +54,8 @@ export function HomeScreen() {
     <View style={styles.background}>
       <ItalianFlagBanner />
       <HomeScreenComponent />
-      <HomeScreenButton navLink={NAV_PLACES} />
-      <HomeScreenButton navLink={NAV_IMAGES} />
+      <ScreenButton navLink={NAV_PLACES} />
+      <ScreenButton navLink={NAV_IMAGES} />
       <Footer />
     </View>
   );
