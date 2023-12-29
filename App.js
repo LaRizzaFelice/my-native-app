@@ -15,7 +15,7 @@ import { PlacesProvider } from "./contexts/PlacesContext";
 const Stack = createNativeStackNavigator();
 
 const screenOptions = ({
-  headerStyle: tw`bg-red-700 p-4`,
+  headerStyle: tw`bg-white`,
   headerTitleStyle: tw`text-center text-black text-lg`
 });
 

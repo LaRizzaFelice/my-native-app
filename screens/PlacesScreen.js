@@ -1,26 +1,21 @@
-import { StyleSheet, Text, TouchableOpacity, View, FlatList} from "react-native";
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { Icon } from "react-native-elements";
+import { useNavigation } from "@react-navigation/native";
 import tw from "twrnc";
 
+import { PlaceIcon } from "../components/PlaceIcon";
 import { usePlacesContext } from "../contexts/PlacesContext";
 import { NAV_PLACE_DETAILS } from "../navigation_constants";
-import { useNavigation } from "@react-navigation/native";
-
-function PlaceIcon({ place }) {
-  return (
-    <Icon
-      name={place.icon}
-      color={place.color}
-      type="ionicon"
-      size={24}
-      style={styles.icon}
-    />
-  );
-}
 
 function Place({ place }) {
+  const navigation = useNavigation();
   const { toggleIsSelected } = usePlacesContext();
-   const navigation = useNavigation();
 
   return (
     <View style={styles.placeContainer}>
@@ -34,10 +29,9 @@ function Place({ place }) {
           <Text style={styles.description}>{place.description}</Text>
         </View>
         <TouchableOpacity
-          style={[styles.center, styles.touchable(place.isSelected)]}
           onPress={() => navigation.navigate(NAV_PLACE_DETAILS, { place })}
         >
-          <Icon style={styles.icon} name={`chevron-forward`} type="ionicon" />
+          <Icon name={"chevron-right"} style={styles.rightButton} />
         </TouchableOpacity>
       </TouchableOpacity>
       <View style={styles.hairline} />
@@ -50,10 +44,11 @@ export function PlacesScreen() {
   return (
     <View style={styles.container}>
       <FlatList
-      data={places}
-      Keyextractor={place=>place.id}
-      renderItem={({item}) => <Place place ={item} />}>
-      </FlatList>
+        style={styles.flatlist}
+        data={places}
+        keyExtractor={(place) => place.id}
+        renderItem={({ item }) => <Place place={item} />}
+      />
     </View>
   );
 }
@@ -67,5 +62,5 @@ const styles = StyleSheet.create({
     tw`flex-row p-3 ${isSelected ? "bg-purple-100" : ""}`,
   name: tw`font-semibold text-lg`,
   description: tw`text-gray-500`,
-  icon: tw`mr-4 p-3 bg-purple-200 rounded-full`,
+  rightButton: tw`bg-purple-300 rounded-full p-3`,
 });
