@@ -15,5 +15,5 @@ export function PlaceIcon({ place }) {
 }
 
 const styles = StyleSheet.create({
-  icon: tw`mr-4 p-3 bg-purple-300 rounded-full`,
+  icon: tw`mr-4 p-3 bg-green-200 rounded-full`,
 });

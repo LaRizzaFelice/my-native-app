@@ -11,6 +11,7 @@ import { Text } from "react-native";
 import tw from "twrnc";
 import { NAV_IMAGES, NAV_PLACES } from "../navigation_constants";
 import ItalianFlagBanner from "../components/ItalianFlagBanner";
+import { Footer } from "../components/Footer";
 
 function ImageFromUri({
   uri,
@@ -60,13 +61,13 @@ const HomeScreenComponent = () => {
   );
 };
 
-const Footer = () => {
-  return (
-    <View style={styles.footer}>
-      <Text style={styles.footerText}>Copyright 2024 - Felice La Rizza</Text>
-    </View>
-  );
-};
+// const Footer = () => {
+//   return (
+//     <View style={styles.footer}>
+//       <Text style={styles.footerText}>Copyright 2024 - Felice La Rizza</Text>
+//     </View>
+//   );
+// };
 
 export function HomeScreen() {
   return (
