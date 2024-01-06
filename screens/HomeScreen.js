@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { Text } from "react-native";
 import tw from "twrnc";
-import { NAV_IMAGES, NAV_PLACES } from "../navigation_constants";
+import { NAV_IMAGES, NAV_NATIVE, NAV_PLACES } from "../navigation_constants";
 import ItalianFlagBanner from "../components/ItalianFlagBanner";
 import { Footer } from "../components/Footer";
 import { ScreenButton } from "../components/ScreenButton";
@@ -56,6 +56,7 @@ export function HomeScreen() {
       <HomeScreenComponent />
       <ScreenButton navLink={NAV_PLACES} />
       <ScreenButton navLink={NAV_IMAGES} />
+      <ScreenButton navLink={NAV_NATIVE} />
       <Footer />
     </View>
   );
