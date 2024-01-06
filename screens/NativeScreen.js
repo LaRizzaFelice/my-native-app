@@ -2,7 +2,8 @@ import { ActivityIndicator, useWindowDimensions } from "react-native";
 import { StyleSheet, View, Image } from "react-native";
 import tw from "twrnc";
 import ItalianFlagBanner from "../components/ItalianFlagBanner";
-import { ComposePizza } from "../components/ComposePizza";
+import {ComposeNative} from "../components/ComposeNative";
+
 import { Footer } from "../components/Footer";
 import { ORDERCONFIRM } from "../navigation_constants";
 import { ScreenButton } from "../components/ScreenButton";
@@ -11,7 +12,7 @@ export function NativeScreen() {
   return (
     <View style={styles.container}>
       <ItalianFlagBanner />
-      <ComposePizza />
+      <ComposeNative/>
       <ScreenButton navLink={ORDERCONFIRM} />
       <Footer />
     </View>
